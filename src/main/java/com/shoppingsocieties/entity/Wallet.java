@@ -1,10 +1,14 @@
 package com.shoppingsocieties.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
+
+import static javax.persistence.FetchType.LAZY;
 
 /***
  *
@@ -18,20 +22,20 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "wallet")
-public class Wallet {
+public class Wallet implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "wallet_id")
-    private Long walletId;
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "balance")
     private Double balance;
 
-    @Column(name = "currency_code")
-    private String currencyCode;
+    @Column(name = "currency")
+    private String currency;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    @OneToOne(mappedBy = "wallet",fetch=LAZY)
     private User user;
 }
