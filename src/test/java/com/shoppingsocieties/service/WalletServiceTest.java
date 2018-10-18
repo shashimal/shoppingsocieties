@@ -1,17 +1,22 @@
 package com.shoppingsocieties.service;
 
+import com.shoppingsocieties.common.StringConstant;
 import com.shoppingsocieties.entity.User;
 import com.shoppingsocieties.entity.Wallet;
+import com.shoppingsocieties.exception.InvalidIdException;
 import com.shoppingsocieties.repository.WalletRepository;
 import com.shoppingsocieties.service.impl.WalletServiceImpl;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
@@ -27,6 +32,9 @@ public class WalletServiceTest {
 
     @InjectMocks
     private WalletServiceImpl walletService;
+
+    @Rule
+    public ExpectedException exceptionRule = ExpectedException.none();
 
     @Before
     public void setup() {
@@ -68,6 +76,19 @@ public class WalletServiceTest {
         assertEquals(new Double(500.00), resultWallet.getBalance());
         assertEquals(new Long(1), resultWallet.getUser().getId());
         assertEquals("Shopping Societies", resultWallet.getUser().getName());
+    }
 
+    @Test
+    public void testEntityNotFoundException() throws Exception {
+        exceptionRule.expect(EntityNotFoundException.class);
+        exceptionRule.expectMessage(StringConstant.ENTITY_NOT_FOUND);
+        walletService.findWalletById(20L);
+    }
+
+    @Test
+    public void testInvalidIdException()throws Exception {
+        exceptionRule.expect(InvalidIdException.class);
+        exceptionRule.expectMessage(StringConstant.INVALID_ID);
+        walletService.findWalletById(null);
     }
 }

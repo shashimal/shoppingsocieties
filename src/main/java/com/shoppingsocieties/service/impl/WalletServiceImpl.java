@@ -2,6 +2,7 @@ package com.shoppingsocieties.service.impl;
 
 import com.shoppingsocieties.common.StringConstant;
 import com.shoppingsocieties.entity.Wallet;
+import com.shoppingsocieties.exception.InvalidIdException;
 import com.shoppingsocieties.repository.WalletRepository;
 import com.shoppingsocieties.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class WalletServiceImpl implements WalletService {
         Optional<Wallet> wallet = walletRepository.findById(walletId);
 
         if (walletId == null) {
-            throw new Exception(StringConstant.INVALID_ID);
+            throw new InvalidIdException(StringConstant.INVALID_ID);
         }
 
         if (!wallet.isPresent()) {
