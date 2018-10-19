@@ -1,7 +1,9 @@
 package com.shoppingsocieties.service.impl;
 
 import com.shoppingsocieties.api.SaleResponse;
+import com.shoppingsocieties.common.StringConstant;
 import com.shoppingsocieties.dto.SalesDTO;
+import com.shoppingsocieties.exception.NoSalesException;
 import com.shoppingsocieties.repository.SaleRepository;
 import com.shoppingsocieties.service.SaleService;
 import com.shoppingsocieties.util.DateUtil;
@@ -37,7 +39,7 @@ public class SaleServiceImpl implements SaleService {
         List<Object[]> sales = saleRepository.getCurrentFlashSalesByCountry(country, currentTime);
 
         if (sales != null && sales.size() == 0) {
-            throw new Exception("No flash sales for this country");
+            throw new NoSalesException(StringConstant.NO_FLASH_SALES);
         }
 
         List<SalesDTO> saleDTOS = new ArrayList<>();

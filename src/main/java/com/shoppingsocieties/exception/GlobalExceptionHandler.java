@@ -36,4 +36,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), StringConstant.MISSING_REQUEST_PARAMETER);
         return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
     }
+
+    @ExceptionHandler(NoSalesException.class)
+    public ResponseEntity<Object> handleNoSalesException(NoSalesException ex) {
+        ApiError apiError = new ApiError(HttpStatus.NOT_FOUND, ex.getLocalizedMessage(), StringConstant.NO_RECORDS);
+        return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
+    }
 }

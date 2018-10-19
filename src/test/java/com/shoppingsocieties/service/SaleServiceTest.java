@@ -1,6 +1,7 @@
 package com.shoppingsocieties.service;
 
 import com.shoppingsocieties.api.SaleResponse;
+import com.shoppingsocieties.common.StringConstant;
 import com.shoppingsocieties.repository.SaleRepository;
 import com.shoppingsocieties.service.impl.SaleServiceImpl;
 import com.shoppingsocieties.util.DateUtil;
@@ -58,7 +59,7 @@ public class SaleServiceTest {
     @Test
     public void testNoFlashSalesException() throws Exception {
         exceptionRule.expect(Exception.class);
-        exceptionRule.expectMessage("No flash sales for this country");
+        exceptionRule.expectMessage(StringConstant.NO_FLASH_SALES);
         saleService.getCurrentFlashSalesByCountry("DKG");
     }
 }
