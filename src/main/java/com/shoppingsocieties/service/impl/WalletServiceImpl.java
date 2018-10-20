@@ -30,11 +30,11 @@ public class WalletServiceImpl implements WalletService {
      */
     @Override
     public Wallet findWalletById(Long walletId) throws Exception {
-        Optional<Wallet> wallet = walletRepository.findById(walletId);
-
         if (walletId == null) {
             throw new InvalidIdException(StringConstant.INVALID_ID);
         }
+        
+        Optional<Wallet> wallet = walletRepository.findById(walletId);
 
         if (!wallet.isPresent()) {
             throw new EntityNotFoundException(StringConstant.ENTITY_NOT_FOUND);
