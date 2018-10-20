@@ -30,8 +30,4 @@ public class ProductController {
         ProductPurchaseResponse productPurchaseResponse = productService.purchase(salesId, productPurchaseRequest);
         return new ResponseEntity<>(productPurchaseResponse,HttpStatus.OK);
     }
-
-    private void validateProductPruchase(ProductPurchaseRequest productPurchaseRequest) {
-
-    }
 }
