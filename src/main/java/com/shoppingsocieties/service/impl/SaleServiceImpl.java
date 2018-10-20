@@ -1,6 +1,6 @@
 package com.shoppingsocieties.service.impl;
 
-import com.shoppingsocieties.api.SaleResponse;
+import com.shoppingsocieties.api.response.SaleResponse;
 import com.shoppingsocieties.common.StringConstant;
 import com.shoppingsocieties.dto.SalesDTO;
 import com.shoppingsocieties.exception.NoSalesException;

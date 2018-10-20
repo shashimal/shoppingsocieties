@@ -1,6 +1,6 @@
 package com.shoppingsocieties.service;
 
-import com.shoppingsocieties.api.SaleResponse;
+import com.shoppingsocieties.api.response.SaleResponse;
 
 /***
  * SaleService is responsible for handling sales related functions

@@ -1,6 +1,6 @@
 package com.shoppingsocieties.controller;
 
-import com.shoppingsocieties.api.SaleResponse;
+import com.shoppingsocieties.api.response.SaleResponse;
 import com.shoppingsocieties.dto.SalesDTO;
 import com.shoppingsocieties.service.SaleService;
 import org.junit.Test;

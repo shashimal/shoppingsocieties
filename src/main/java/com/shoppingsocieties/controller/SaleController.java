@@ -1,6 +1,6 @@
 package com.shoppingsocieties.controller;
 
-import com.shoppingsocieties.api.SaleResponse;
+import com.shoppingsocieties.api.response.SaleResponse;
 import com.shoppingsocieties.service.SaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

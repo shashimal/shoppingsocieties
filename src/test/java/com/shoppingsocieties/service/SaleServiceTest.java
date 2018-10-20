@@ -1,6 +1,6 @@
 package com.shoppingsocieties.service;
 
-import com.shoppingsocieties.api.SaleResponse;
+import com.shoppingsocieties.api.response.SaleResponse;
 import com.shoppingsocieties.common.StringConstant;
 import com.shoppingsocieties.repository.SaleRepository;
 import com.shoppingsocieties.service.impl.SaleServiceImpl;
