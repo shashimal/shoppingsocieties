@@ -43,6 +43,19 @@ public class Sale implements Serializable {
     @Column(name = "end_time")
     private Date endTime;
 
+    public Sale(){}
+
+    public Sale(Long id, Long productId, Double price, Integer totalItems, Integer itemsLeft, Date startTime, Date endTime, List<SaleEligibleCountry> saleEligibleCountries) {
+        this.id = id;
+        this.productId = productId;
+        this.price = price;
+        this.totalItems = totalItems;
+        this.itemsLeft = itemsLeft;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.saleEligibleCountries = saleEligibleCountries;
+    }
+
     @OneToMany(
             mappedBy = "sale",
             fetch = FetchType.LAZY
