@@ -33,12 +33,12 @@ INSERT INTO product (id, name, unit_price,units_in_stock) VALUES (11,'Apple Key 
 
 
 -- flash sale data
-INSERT INTO sale (id, product_id, price,total_items,items_left,start_time,end_time) VALUES (1,1,950.00,5,5,'2018-10-21 00:00:00','2018-10-25 00:00:00');
+INSERT INTO sale (id, product_id, price,total_items,items_left,start_time,end_time) VALUES (1,1,950.00,5,5,'2018-10-21 00:00:00','2019-10-25 00:00:00');
 INSERT INTO sale_eligible_country(id,sale_id,country_code,currency_code) VALUES (1,1,'SG','SGD');
 INSERT INTO sale_eligible_country(id,sale_id,country_code,currency_code) VALUES (2,1,'US','USD');
 INSERT INTO sale_eligible_country(id,sale_id,country_code,currency_code) VALUES (3,1,'LK','LKR');
 
-INSERT INTO sale (id, product_id, price,total_items,items_left,start_time,end_time) VALUES (2,2,750.00,10,10,'2018-10-21 00:00:00','2018-10-24 10:00:00');
+INSERT INTO sale (id, product_id, price,total_items,items_left,start_time,end_time) VALUES (2,2,750.00,10,10,'2018-10-21 00:00:00','2019-10-24 10:00:00');
 INSERT INTO sale_eligible_country(id,sale_id,country_code,currency_code) VALUES (4,2,'SG','SGD');
 
 INSERT INTO sale (id, product_id, price,total_items,items_left,start_time,end_time) VALUES (3,3,1250.00,5,5,'2018-10-21 00:00:00','2018-10-22 00:00:00');
@@ -51,7 +51,7 @@ INSERT INTO sale_eligible_country(id,sale_id,country_code,currency_code) VALUES 
 INSERT INTO sale (id, product_id, price,total_items,items_left,start_time,end_time) VALUES (5,10,450.00,1,1,'2018-10-22 00:00:00','2018-10-25 00:00:00');
 INSERT INTO sale_eligible_country(id,sale_id,country_code,currency_code) VALUES (8,5,'SG','SGD');
 
-INSERT INTO sale (id, product_id, price,total_items,items_left,start_time,end_time) VALUES (6,7,3250.00,1,1,'2018-10-21 00:00:00','2018-10-25 00:00:00');
+INSERT INTO sale (id, product_id, price,total_items,items_left,start_time,end_time) VALUES (6,7,3250.00,1,1,'2018-10-21 00:00:00','2019-10-25 00:00:00');
 INSERT INTO sale_eligible_country(id,sale_id,country_code,currency_code) VALUES (9,6,'SG','SGD');
 INSERT INTO sale_eligible_country(id,sale_id,country_code,currency_code) VALUES (10,6,'US','USD');
 
