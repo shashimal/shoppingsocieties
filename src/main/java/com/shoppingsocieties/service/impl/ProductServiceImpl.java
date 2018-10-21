@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 /***
  * Implementation for product service functions
@@ -43,9 +44,13 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductPurchaseResponse purchase(Long salesId, ProductPurchaseRequest productPurchaseRequest) throws Exception {
         //Get the purchased flash sale details
-        Sale sale = saleRepository.findById(salesId).get();
-        //Validate the the flash sale object
-        this.validateSale(sale);
+        Optional<Sale> saleOptional = saleRepository.findById(salesId);
+
+        if (!saleOptional.isPresent()) {
+            throw new ProductPurchaseException("Invalid product purchase request");
+        }
+
+        Sale sale = saleOptional.get();
 
         //Get the user details who purchased this item
         User user = userRepository.findById(productPurchaseRequest.getUserId()).get();
@@ -107,18 +112,6 @@ public class ProductServiceImpl implements ProductService {
 
         if (userWallet.getBalance() < totalPrice) {
             throw new BadRequestException("Insufficient wallet balance");
-        }
-    }
-
-    /**
-     * Validate sale details
-     *
-     * @param sale
-     * @throws ProductPurchaseException
-     */
-    private void validateSale(Sale sale) throws ProductPurchaseException {
-        if (sale == null) {
-            throw new ProductPurchaseException("Invalid product purchase request");
         }
     }
 }
