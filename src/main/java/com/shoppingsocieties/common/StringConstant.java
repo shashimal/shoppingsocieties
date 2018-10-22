@@ -11,4 +11,6 @@ public class StringConstant {
     public static final String NO_RECORDS ="No records found for this request";
     public static final String NO_FLASH_SALES="No flash sales for this country";
     public static final String BAD_REQUEST = "Bad Request";
+    public static final String MALFORMED_JSON = "Malformed JSON request";
+    public static final String INTERNAL_SERVER_ERROR = "Internal Server Error";
 }
