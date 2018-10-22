@@ -76,4 +76,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), StringConstant.BAD_REQUEST);
         return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
     }
+
+    @ExceptionHandler(ProductPurchaseException.class)
+    public ResponseEntity<Object> handleProductPurchaseException(ProductPurchaseException ex) {
+        ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), StringConstant.BAD_REQUEST);
+        return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
+    }
 }
