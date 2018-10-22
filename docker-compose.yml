@@ -1,5 +1,4 @@
 version: '3'
-
 services:
   mysql-db:
     image: mysql/mysql-server:5.7
@@ -20,6 +19,12 @@ services:
     depends_on:
       - mysql-db
     ports:
-      - 8888:8080
+      - 8888:8888
     volumes:
       - /data/shopping-societies-app
+    environment:
+      - DATABASE_HOST=mysql-db
+      - DATABASE_USER=app_user
+      - DATABASE_PASSWORD=test123
+      - DATABASE_NAME=shopping_societies
+      - DATABASE_PORT=3306
