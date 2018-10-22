@@ -32,7 +32,7 @@ public class SaleRepositoryCustomImpl implements SaleRepositoryCustom {
     @Override
     public List<Object[]> getCurrentFlashSalesByCountry(String country, Date currentTime) {
         String sql = "SELECT s.product_id,s.price,e.currency_code," +
-                "s.total_items,s.items_left,e.country_code,s.start_time,s.end_time " +
+                "s.total_items,s.items_left,e.country_code,s.start_time,s.end_time,s.id " +
                 "FROM sale s INNER JOIN sale_eligible_country e ON s.id = e.sale_id " +
                 " WHERE e.country_code=? AND s.items_left > 0 AND (s.start_time <= ? AND  s.end_time >= ? )";
 

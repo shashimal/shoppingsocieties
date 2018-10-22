@@ -9,7 +9,7 @@ import lombok.Data;
 @Builder
 public class SalesDTO {
 
-    @JsonIgnore
+    @JsonProperty("sale_id")
     private Long id;
 
     @JsonProperty("product_id")

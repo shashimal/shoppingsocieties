@@ -37,7 +37,7 @@ public class SaleServiceTest {
     public void testGetCurrentFlashSalesByCountry() throws Exception {
         //given
         Date currentTime = DateUtil.getCurrentTime();
-        Object[] object1 = new Object[]{BigInteger.valueOf(1), 900.50, "SGD", 20, 20, "SG", DateUtil.getDateFromString("2018-10-20 00:00:00"), DateUtil.getDateFromString("2018-10-22 00:00:00")};
+        Object[] object1 = new Object[]{BigInteger.valueOf(1), 900.50, "SGD", 20, 20, "SG", DateUtil.getDateFromString("2018-10-20 00:00:00"), DateUtil.getDateFromString("2018-10-22 00:00:00"),BigInteger.valueOf(1)};
         List<Object[]> list = new ArrayList<>();
         list.add(object1);
 
@@ -51,6 +51,7 @@ public class SaleServiceTest {
         assertEquals(new Double(900.50), result.getSales().get(0).getPrice());
         assertEquals(new Integer(20), result.getSales().get(0).getTotalItems());
         assertEquals(new Integer(20), result.getSales().get(0).getItemsLeft());
+        assertEquals(new Long(1), result.getSales().get(0).getId());
 
         verify(saleRepository).getCurrentFlashSalesByCountry("SGD", currentTime);
         verify(saleRepository, times(1)).getCurrentFlashSalesByCountry("SGD", currentTime);

@@ -50,6 +50,7 @@ public class SaleServiceImpl implements SaleService {
                 .totalItems((Integer) record[3])
                 .itemsLeft((Integer) record[4])
                 .timeLeft(DateUtil.getTimeDifference(currentTime, (Date) record[7]))
+                .id(((BigInteger) record[8]).longValue())
                 .build()));
 
         return SaleResponse.builder().sales(saleDTOS).build();
